@@ -13,6 +13,6 @@ Sometimes there are a lot of fluctuation in the internet speed in my locality, i
 6. It then goes on to perform the speedtest by running the speedtest.exe and storing the outupt in the C:\Users\%username%\Desktop\speedtest\speedtest.log file.
 
 # NOTE
-It is important to note that the scheduled task searches for the file in the location C:\Users\%username%\Desktop\ when configured. So, it is abslutely necessary that the speed.exe or speed.bat file, whichever you use in the code be present at the location for the automated task to work.
+It is important to note that the scheduled task searches for the file in the location "C:\Users\%username%\Desktop\". So, it is abslutely necessary that the speed.exe or speed.bat file, whichever you use in the code be present at the location for the automated task to work.
 
 Also the code is pretty self-explanatory but still I tried my best to explain the basic operaion of what it does for some of my non coder friends(Including myself LOL).
