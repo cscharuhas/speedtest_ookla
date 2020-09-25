@@ -38,7 +38,7 @@ if exist %WINDIR%\System32\Tasks\MyTasks\prahar_ookla ( ECHO Automated task alre
 							goto execute_batch 
 							) 
 if not exist (  set /P password=Enter password for %username% :
-		schtasks /Create /RU %username% /RP %password% /SC MINUTE /MO 2 /TN MyTasks\prahar_ookla /TR C:\Users\%username%\Desktop\speedtest.exe
+		schtasks /Create /RU %username% /RP %password% /SC MINUTE /MO 2 /TN MyTasks\prahar_ookla /TR C:\Users\%username%\Desktop\speed.exe
 		if %ERRORLEVEL% EQU 0   goto execute_batch 
 		if %ERRORLEVEL% NEQ 0 (	ECHO Please try again.
 					goto create_task 
