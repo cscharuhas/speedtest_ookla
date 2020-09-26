@@ -26,7 +26,7 @@ goto create_task
 ECHO Executing the speedtest check. Please be patient this might take a couple of minutes to finish.
 ECHO ==================================================== >> C:\Users\%username%\Desktop\speedtest\speedtest.log
 ECHO Test done on %date% %time% >> C:\Users\%username%\Desktop\speedtest\speedtest.log
-C:\Users\%username%\Desktop\speedtest\ookla\speedtest.exe >> C:\Users\%username%\Desktop\speedtest\speedtest.log
+C:\Users\%username%\Desktop\speedtest\ookla\speedtest.exe >> C:\Users\%username%\Desktop\speedtest\speedtest.log	
 ECHO ==================================================== >> C:\Users\%username%\Desktop\speedtest\speedtest.log
 ECHO Completed Execution. The test results are stored in the C:\Users\%username%\Desktop\speedtest\speedtest.log file.
 TIMEOUT /T 10 /NOBREAK
@@ -35,15 +35,16 @@ exit
 
 :create_task
 if exist %WINDIR%\System32\Tasks\MyTasks\prahar_ookla ( ECHO Automated task already scheduled.
-							goto execute_batch 
-							) 
+														goto execute_batch 
+														) 
 if not exist (  set /P password=Enter password for %username% :
-		schtasks /Create /RU %username% /RP %password% /SC MINUTE /MO 2 /TN MyTasks\prahar_ookla /TR C:\Users\%username%\Desktop\speed.exe
-		if %ERRORLEVEL% EQU 0   goto execute_batch 
-		if %ERRORLEVEL% NEQ 0 (	ECHO Please try again.
-					goto create_task 
-					)
-		)
+				set /P interval=Enter time interval in the range of 1- 1499 :
+				schtasks /Create /RU %username% /RP %password% /SC MINUTE /MO %interval% /TN MyTasks\prahar_ookla /TR C:\Users\%username%\Desktop\speed.bat
+				if %ERRORLEVEL% EQU 0   goto execute_batch 
+				if %ERRORLEVEL% NEQ 0 (	ECHO Please try again.
+										goto create_task 
+										)
+			  )
 
 
 
