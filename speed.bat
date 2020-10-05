@@ -37,7 +37,7 @@ exit
 if exist %WINDIR%\System32\Tasks\MyTasks\prahar_ookla ( ECHO Automated task already scheduled.
 							goto execute_batch 
 							) 
-if not exist %WINDIR%\System32\Tasks\MyTasks\prahar_ookla (  set /P password=Enter password for %username% :
+if not exist (  set /P password=Enter password for %username% :
 		set /P interval=Enter time interval in the range of 1- 1499 :
 		schtasks /Create /RU %username% /RP %password% /SC MINUTE /MO %interval% /TN MyTasks\prahar_ookla /TR C:\Users\%username%\Desktop\speed.bat
 		if %ERRORLEVEL% EQU 0   goto execute_batch 
