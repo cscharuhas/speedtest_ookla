@@ -16,7 +16,7 @@ goto download_ookla
 	
 :download_ookla
 ECHO Downloading the required files for the initial setup.
-powershell -Command "(New-Object Net.WebClient).DownloadFile('https://bintray.com/ookla/download/download_file?file_path=ookla-speedtest-1.0.0-win64.zip', 'C:\Users\%username%\Desktop\speedtest\ookla.zip')"
+powershell -Command "(New-Object Net.WebClient).DownloadFile('https://install.speedtest.net/app/cli/ookla-speedtest-1.2.0-win64.zip', 'C:\Users\%username%\Desktop\speedtest\ookla.zip')"
 powerShell -Command Expand-Archive -Path "C:\Users\%username%\Desktop\speedtest\ookla.zip" -DestinationPath "C:\Users\%username%\Desktop\speedtest\ookla\."
 ECHO Downloaded and extracted the needed OOKLA.zip file.
 goto create_task
